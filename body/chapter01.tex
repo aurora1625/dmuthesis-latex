@@ -1,0 +1,65 @@
+\chapter{为什么要做这个模板}\label{ch:intr}
+
+因为使用Microsoft Word写学术论文是一件非常自我摧残的事情，要花费大量的时间去学习Word排版，弄不好还要花费别人大量的时间帮忙拍自己的论文，还要搭上人情，请人家吃顿饭什么的，关键是会在别人心中留下一个小小的印记：“切，连排个版都不会！”
+
+{\xiaoerhao 关键是用Word写学术论文本来就是一件十分{\color{red}不}靠谱的事情，而且完全有更简单，更专业的解决方法 —— {\color{blue}\LaTeX} ！}
+
+
+\section{模板说明}
+\label{sec:fastguide}
+
+\subsection{模板特性}
+\label{sec:features}
+
+这个模板是大连海事大学硕博毕业论文\LaTeX{}模版，中文解决方案是~Xe\TeX{}。
+参考文献建议使用~BibTeX~管理，可以生成符合国标~GBT7714~风格的参考文献列表。
+模板在~Windows~、~Linux~和MAC OSX下测试通过，更详细的安装步骤请参考第\ref{ch:install}章。
+
+
+最后，给出一个列表，罗列一下这个模板的功能要点：
+
+\begin{itemize}
+\item 使用\XeTeX 引擎处理中文；
+\item 包含中文字符的源文件(.tex, .bib, .cfg)，编码都使用UTF-8；
+\item 使用\BibTeX 管理参考文献。参考文献表现形式(格式)受~.bst~控制，方便在不同风格间切换\cite{Schmidt,Schneider2010,Sha2003,Shan2010,Wang2010}，目前生成的列表符合国标GBT7714要求；
+\item 可以直接插入EPS/PDF/JPG/PNG格式的图像，并且\emph{不需要}~bounding box~文件(.bb)。
+\item 模版采用分章节管理文件，可选择编译，节省时间；论文封面、签名的标题、版权声明等通过WORD转换成pdf，并包含在模版主文件中。
+
+\end{itemize}
+
+\subsection{模板文件布局}
+\label{sec:layout}
+
+\begin{lstlisting}[basicstyle=\small\ttfamily,caption={模板文件布局},label=layout,numbers=none]
+  ├─ dmuthesis.tex % 论文主源文件
+  ├── 使用手册.pdf % 使用手册
+  ├── dmuthesis.cls  % 模版类文件
+	├── front  % 中英文摘要和创新点摘要
+	│   ├── original_abstract.tex
+  │   ├── cn_abstract.tex
+  │   └── en_abstract.tex
+  ├── body  % 各章节源文件
+  │   ├── chapter01.tex
+  │   ├── chapter02.tex
+  │   ├── chapter03.tex
+  │   ├── chapter04.tex
+  │   └── chapter05.tex
+  ├── back  % 篇后部份源文件
+  │   ├── appendix.tex
+  │   ├── pub.tex
+  │   └── ack.tex
+  ├── cover  % 封面
+  │   └── cover.pdf
+  ├── figs % 图片文件
+  │   └── chap2
+  ├── dmubib.bst % 参考文献格式定义
+  ├── reference % 参考文献数据库文件
+  │   ├── thesisbib.bib
+  │   └── chapter3bib.bib
+  ├── dmubib.bst  % 参考文献样式
+  ├── clean.bat  % 批处理，清理中间文件
+	├── clean.sh  % 批处理，清理中间文件 linux和mac下使用
+	├── run.sh %批处理运行， linux和mac下使用
+	├── makefile  % 另一专用批处理运行，linux和mac下使用
+  └── run.bat % 批处理，WINDOWS用
+\end{lstlisting}

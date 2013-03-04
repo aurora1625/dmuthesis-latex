@@ -1,0 +1,390 @@
+\chapter{模版的使用}\label{ch:mannual}
+本手册使用\LaTeX{}编译生成，本章的例子可以找到对应的TEX源代码。
+
+\section{封面的生成}
+
+非常重要！！！
+
+由于本人能力和时间有限，所以没能用\LaTeX 做成学校论文的中英文封面和原创性声明，所以需要使用的用户通过学校提供的模板手工生成pdf文件，然后再通过导入的方法使用。
+而且需要注意的是，考虑到打印的问题，请在中文封面，英文封面和原创性声明之后都手工加入一个空白页(Ctrl+Enter)。
+\section{dmuthesis.tex主源文件}
+
+\subsection{论文封面及原创性声明}
+dmuthesis.tex是本模版的主源文件，所有的章节都需通过这个文件包含进来，也是Xe\LaTeX{}命令编译的对象。
+这个文件的主要语句使用如下：
+
+修改\verb|/cover/thesis_cover.doc|，转化成pdf文件，用以下命令包含论文封面：
+\begin{verbatim}
+\includepdf[pages=-]{cover/thesis_cover.pdf}
+\end{verbatim}
+使用以上方法，硕士也可以使用本模板进行写作了。
+\subsection{修改论文题目}
+\begin{verbatim}
+\newcommand{\thesissubject}{大连海事大学研究生论文模板使用帮助}
+\end{verbatim}
+
+\subsection{摘要与目录}
+由于硕士论文不要求创新点摘要，所以硕士研究生请将下面两行代码注释。
+\begin{verbatim}
+\originalabstract 
+\include{front/original_abstract}
+
+\end{verbatim}
+
+由于学校模板中并没有要求加入图目录和表格目录，所以这里也没有加入。
+
+\section{新建章节}
+
+正文的章节使用\verb|\chapter|，例如：\verb|\chapter{绪论}|
+
+新建一章的第一级小节命令：\verb|\section{新建章节}|。
+多级章小节用\verb|\subsection{3.2.1}|，\verb|\subsubsection{3.2.1.1}|。不建议使用超过4级的小节。若有需要可以使用没有编号的章节题目。使用`*'去掉编号，命令\verb|\subsubsection*{无编号章节}|，可以得到以下效果：
+
+\subsubsection*{无编号章节}
+
+参考文献之后的章节用\verb|\appendix|命令，如\verb|\appendix{致谢}|。
+
+\section{字体控制}
+
+模板预制了多种字体，可供参考，比如{\songti 宋体}，{\heiti 黑体 },{\kaiti 楷体}和{\fangsong 仿宋}。
+
+字号也有很多可供选择，比如 
+
+{\chuhao 初号} 就是太大了。
+
+{\xiaochuhao 小初号} 也非常大 。
+
+{\yichu 一初} 我也不知道为什么要设置这个字号。
+ 
+{\yihao 一号} 用的地方也比较少。
+  
+{\erhao 二号}。
+
+{\xiaoerhao 小二号}。
+
+{\sanhao 三号}。
+
+{\xiaosanhao 小三号}。
+
+{\sihao 四号} 和{\xiaosihao 小四号} 。
+
+{\wuhao 五号}和 {\xiaowuhao 小五号}。
+ 
+{\liuhao 为什么你要用六号字呢？} 
+
+{\xiaoliuhao 用小六号，你是心虚不想让别人看清楚吧} 。
+
+{\qihao 七号，你在搞什么啊？} 
+
+除此之外，还可以加入不同的{\color {blue} 颜}  {\color {cyan} 色}。{\xiaoerhao {\color{blue}配合} \sihao 不同的\kaiti 字体\fangsong  和字号，{\color{yellow}如果}你真的\heiti {\color{red}有时间的话}}。
+
+
+\textbf{所以，这些字号的设置啊，就让它随波而去吧，提供了不代表你要使用！}
+\section{插入图片}
+\subsection{一张图片}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.4]{figs/dmu-logo.eps}
+\FigureBicaption{大连海事大学标志}{DMU LOGO}
+\label{fig:single}
+\end{figure}
+
+
+以下命令将产生图\ref{fig:single}的效果：
+\begin{verbatim}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.4]{figs/dmu-logo.eps}
+\FigureBicaption{大连海事大学标志}{DMU LOGO}
+\label{fig:single}
+\end{figure}
+\end{verbatim}
+其中[H]参数强制固定浮动图形的位置；scale参数可以调整图片大小；\verb|\FigureBicaption{中文标题}{英文标题}|加入图片标题；\verb|\label|命令用来引用图片，具体用法见第\ref{sect:ref}节。
+建议使用\verb|width=0.7\textwidth|代替\verb|scale=0.4|，可以更方便控制图片大小。
+
+\subsection{并列子图}\label{subsect:subfigeres}
+
+
+\begin{figure}
+\begin{minipage}{0.48\textwidth}
+  \centering
+  \includegraphics[height=1.5cm]{figs/dmu-logo.eps}
+  \FigureBicaption{并排第一个图}{Two parallel figures}
+  \label{fig:parallel1}
+\end{minipage}\hfill
+\begin{minipage}{0.48\textwidth}
+  \centering
+  \includegraphics[height=1.5cm]{figs/dmu-logo.eps}
+  \FigureBicaption{并排第二个图}{Two parallel figures}
+  \label{fig:parallel2}
+\end{minipage}
+\end{figure}
+如果多个图形相互独立，并不共用一个图形计数器，用 \verb|minipage|。以下命令效果见图\ref{fig:parallel1}和图\ref{fig:parallel2}：
+\begin{verbatim}
+\begin{figure}
+\begin{minipage}{0.48\textwidth}
+  \centering
+  \includegraphics[height=2cm]{figs/dmu-logo.eps}
+  \FigureBicaption{并排第一个图}{Two parallel figures}
+  \label{fig:parallel1}
+\end{minipage}\hfill
+\begin{minipage}{0.48\textwidth}
+  \centering
+  \includegraphics[height=2cm]{figs/dmu-logo.eps}
+  \FigureBicaption{并排第二个图}{Two parallel figures}
+  \label{fig:parallel2}
+\end{minipage}
+\end{figure}
+\end{verbatim}
+
+多个子图的情况用见图\ref{fig:subfigs-singleCaption}，这个图中，子图只有中文的标题。
+\begin{figure} %[h]
+  \centering%
+  \subfloat[第一个小图形]{%
+    \label{fig:subfig1-singleCaption}
+    \includegraphics[height=2cm]{figs/dmu-logo.eps}}\hspace{4em}%
+  \subfloat[第二个小图形。如果标题很长的话，它会自动换行，这个 caption 就是这样的例子]{%
+    \label{fig:subfig2-singleCaption}
+    \includegraphics[height=2cm]{figs/dmu-logo.eps}}
+  \FigureBicaption{多个子图}{Subfigures}
+  \label{fig:subfigs-singleCaption}
+\end{figure}
+
+子图也使用双标题，其效果见图\ref{fig:subfigs}
+\begin{figure} %[h]
+  \centering%
+  \SubfloatCaption{子图中文标题}{English caption}{fig:subfig1}{\includegraphics[height=2cm]{figs/dmu-logo.eps}}
+  \hspace{4em}%
+  \SubfloatCaption{子图中文标题}{English caption}{fig:subfig2}{\includegraphics[height=2cm]{figs/dmu-logo.eps}}
+  \FigureBicaption{多个子图}{Subfigures}
+  \label{fig:subfigs}
+\end{figure}
+\begin{verbatim}
+\begin{figure} %[h]
+  \centering%
+  \SubfloatCaption{子图中文标题}{English caption}{fig:subfig1}
+    {\includegraphics[height=2cm]{figs/dmu-logo.eps}}
+  \hspace{4em}%
+  \SubfloatCaption{子图中文标题}{English caption}{fig:subfig2}
+    {\includegraphics[height=2cm]{figs/dmu-logo.eps}}
+  \FigureBicaption{多个子图}{Subfigures}
+  \label{fig:subfigs}
+\end{figure}
+\end{verbatim}
+
+\section{表格}
+\subsection{基本表格}
+\label{subsect:basictable}
+双标题表格，由于学校模板中并没有对子表格规定是否要用双标题，所以请自行决定。
+
+\begin{table}[htb]
+  \centering
+  \begin{minipage}[t]{0.8\linewidth} % 如果想在表格中使用脚注，minipage是个不错的办法
+  \TableBicaption{如果表格的标题很长，那么在表格索引中就会很不美
+    观，所以要像 chapter 那样在前面用中括号写一个简短的标题。这个标题会出现在索
+    引中。}{English caption}
+  \label{tab:basic}
+    \begin{tabular*}{\linewidth}{lp{10cm}}
+      \toprule[1.5pt]
+      {文件名} & {描述} \\\midrule[1pt]
+      scutthesis.cls & 模板类文件。\\
+      scutthesis.bst    & 参考文献 Bibtex 样式文件。\\
+      \bottomrule[1.5pt]
+    \end{tabular*}
+  \end{minipage}
+\end{table}
+
+
+\subsection{并列表格/子表格}
+与并列图形方法类似,参考第\ref{subsect:subfigeres}节。
+\begin{table}%[h]
+\noindent\begin{minipage}{0.5\textwidth}
+\centering
+\caption{第一个并排子表格}
+\label{tab:parallel1}
+\begin{tabular}{p{2cm}p{2cm}}
+\toprule[1.5pt]
+111 & 222 \\\midrule[1pt]
+222 & 333 \\\bottomrule[1.5pt]
+\end{tabular}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+\centering
+\caption{第二个并排子表格}
+\label{tab:parallel2}
+\begin{tabular}{p{2cm}p{2cm}}
+\toprule[1.5pt]
+111 & 222 \\\midrule[1pt]
+222 & 333 \\\bottomrule[1.5pt]
+\end{tabular}
+\end{minipage}
+\end{table}
+
+\begin{table}
+\centering
+\caption{并排子表格}
+\label{tab:subtable}
+\subfloat[第一个子表格]{
+\begin{tabular}{p{2cm}p{2cm}}
+\toprule[1.5pt]
+111 & 222 \\\midrule[1pt]
+222 & 333 \\\bottomrule[1.5pt]
+\end{tabular}}\hskip2cm
+\subfloat[第二个子表格]{
+\begin{tabular}{p{2cm}p{2cm}}
+\toprule[1.5pt]
+111 & 222 \\\midrule[1pt]
+222 & 333 \\\bottomrule[1.5pt]
+\end{tabular}}
+\end{table}
+
+模版还提供了更加复杂的表格功能，如表格中的斜线，注释等。本文档暂时不提供这些复杂表格的例子，暂留给读者探索。跨页长表格的例子可以看到附录中的发表文文章列表。
+
+\section{公式}
+简单公式环境：
+\begin{equation}\label{eq:simple}
+y=mx+c
+\end{equation}
+
+公式太长，多行排列：
+\begin{equation}\label{eq:split}
+  \begin{split}
+      y&=mx+c\\
+       & \quad(n+o)x+c\\
+       &=1
+  \end{split}
+\end{equation}
+另外一种方法：
+\begin{multline}
+1+2+3+4+\\
+5+6+7+8
+\end{multline}
+多个公式并列不要用多个equation环境，会造成公式间距过大的问题，用gather环境：
+\begin{gather}
+y=mx+c \label{eq:eq1}\\
+x=(n-2)+d \label{eq:eq2}
+\end{gather}
+公式的对齐，以等号对齐为例：
+\begin{align}
+a&=b+c\\
+d&=e+f+g+h
+\end{align}
+再来一个例子：
+\begin{align}
+a{11}&=1 & b_{12}&=2\\
+a{21}&=3 & b_{22}&=4
+\end{align}
+来一个对齐方式不一样的：
+\begin{flalign}
+a{11}&=1 & b_{12}&=2\\
+a{21}&=3 & b_{22}&=4
+\end{flalign}
+
+\section{定理环境}
+模版提供了多种定理环境：命题(proposition)，引理(lemma)，定理(theorem)，公理(axiom)， 推论(corollary)，情形(case)，猜想(conjecture)，性质(property)，还有定义(definition)，例(example)，注(remark)。下面以常见的环境作例子。\cite{Barman2006,Berry2007,Boutsidis2008,Buciu2006,Cai2005,Chen2008,Cichocki2006,Cichocki2008,Cichocki2007,Cichocki2007a,Cichocki}
+\begin{theorem}[人论]\label{thm:ex1}
+你是人。
+\end{theorem}
+把证明内容放到\verb|\begin{proof}|和\verb|\end{proof}|即可得到：
+\begin{proof}
+是的，大家都说你有点像人$\sim\sim$
+\end{proof}
+
+\section{列表环境}
+无编号列表
+\begin{itemize}
+\item 第一项
+	\begin{enumerate}
+	\item 下一次
+	\item 在下一次
+	\end{enumerate}
+\item 第二项
+\end{itemize}
+
+编号列表
+\begin{enumerate}
+\item 第一项
+\item 第二项
+\end{enumerate}
+
+描述环境，一般用于几个定义的描述：
+\begin{description}
+  \item[天才] 不按常理思考；
+  \item[流氓] 不按道德行动；
+\end{description}
+
+\section{参考文献}
+
+关于参考文献的管理以及使用，请参考 \url{http://aurora1625.github.com/blog/2012/02/16/tame-the-beast/}。此处不再赘述。
+
+
+\section{算法}\label{sect:algNcode}
+伪代码可以用algorithm环境，下面的代码得到算法\ref{alg: life}的效果。
+\begin{verbatim}
+\begin{algorithm}
+\caption{生命的轨迹} \label{alg: life}
+\nl 睁眼\;
+\nl \If {O了没？} {O了，闭眼}
+\nl \Else{闭眼吧，忙活了一辈子，这时候还能有什么放不下。}
+\end{algorithm}
+\end{verbatim}
+\begin{algorithm}
+\caption{生命的轨迹} \label{alg: life}
+\nl 睁眼\;
+\nl \If {O了没？} {O了，闭眼}
+\nl \Else{闭眼吧，忙活了一辈子，这时候还能有什么放不下。}
+\end{algorithm}
+%
+%源代码用lstlisting环境。把代码\ref{code:love}的内容放在\verb+\begin{lstlisting}+和
+%\verb+\end{lstlisting}+即可得到代码\ref{code:love}的效果
+%\begin{lstlisting}[language={C}, label=code:love,caption={恋爱程序}]
+%include<love.h>
+%char result love(boy, girl)
+%　　　　{
+%　　　　    if( boy.有房() and boy.有车() )
+%　　　　    {
+%　　　　    boy.set(nothing);
+%　　　      return girl.嫁给(boy);
+%　　　　    }
+%　　　　    if( girl.愿意等() )
+%　　　　    {
+%　　　　    while(!(boy.赚钱 > 100,000 and girl.感情 > 8 ) )
+%　　　　    {
+%　　　　    for( day=1; day <=365; day++)
+%　　　　    {
+%　　　　        if( day == 情人节 )
+%　　　　        if( boy.givegirl(玫瑰) )
+%　　　　        girl.感情++;
+%　　　　        else
+%　　　　        girl.感情--; 　　
+%　　　　        if( day == girl.生日)
+%　　　　        if( boy.givegirl(玫瑰) )
+%　　　　        girl.感情++;
+%　　　　        else
+%　　　　        girl.感情--;
+%　　　　        boy.拼命赚钱();
+%　　　　     }
+%　　　　 }
+%　　　　　　　 if( boy.有房() and boy.有车() )
+%　　　　　　　 {
+%　　　　          boy.set(nothing);
+%　　　　          return girl.嫁给(boy);
+%　　　　      }
+%　　　　      年龄++;
+%　　　　      girl.感情--;
+%　　　　      }
+%　　　　      return girl.goto( another_boy);
+%　　　　 }
+%\end{lstlisting}
+\section{交叉引用}\label{sect:ref}
+交叉引用需要两个步骤。
+\begin{enumerate}
+ \item 用\verb|\label{}|命令标识；
+ \item 用\verb|\ref{}|命令引用。
+\end{enumerate}
+
+从本节的例子可以看出，无论是图片，表格，公式，定理，算法，代码，章节等，都可以表示和引用。如\verb|\label{ch:intr}|和\verb|第\ref{ch:intr}章|。注意到，\verb|\ref|命令只是引用了编号，并没有给出引用的类型，因此需要加上引用类型的名字，再如\verb|算法\ref{alg: life}|。公式的编号一般在括号里，特殊地，可以用\verb|\eqref{}|代替`\verb|(\ref{})|'。
+
+
+
