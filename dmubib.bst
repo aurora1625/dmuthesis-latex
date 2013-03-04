@@ -171,15 +171,15 @@ FUNCTION {output.bibitem}
   before.all 'output.state :=
 }
 
-% FUNCTION {fin.entry}
-%{ duplicate$ empty$
-%    'pop$
-%    'write$
-%  if$
-%  newline$
-%  "\thudot" write$
-%  newline$
-%}
+FUNCTION {fin.entry}
+{ duplicate$ empty$
+    'pop$
+    'write$
+  if$
+  newline$
+  "\thudot" write$
+  newline$
+}
 
 % FUNCTION {fin.entry}
 % { add.period$   
