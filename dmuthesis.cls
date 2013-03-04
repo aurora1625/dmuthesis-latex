@@ -1,5 +1,5 @@
 % -----------------------------------------------------------------
-% Copyright (C)  2012-2013  Zhibo Xiao(肖智博) and Vital Delmas Mabonzo
+% Copyright (C)  2012  Zhibo Xiao(肖智博) and Vital Delmas Mabonzo
 % Permission is granted to copy, distribute and/or modify this document
 % under the terms of the GNU Free Documentation License, Version 1.3
 % or any later version published by the Free Software Foundation;
@@ -76,13 +76,13 @@
 \RequirePackage{fontspec,xunicode}
 \RequirePackage{xltxtra}
 \RequirePackage{zhspacing}
-\RequirePackage{zhfont}
 \RequirePackage{zhmath}
+\zhspacing
 \setmainfont[Mapping=tex-text]{Times New Roman}
-\setCJKmainfont[BoldFont=SimHei,ItalicFont=Kaiti]{SimSun} 
+\setCJKmainfont[BoldFont={Heiti}]{SimSun} 
 \setCJKfamilyfont{song}{SimSun}
 \setCJKfamilyfont{hei}{SimHei}
-\setCJKfamilyfont{kai}{Kaiti}
+\setCJKfamilyfont{kai}{KaiTi}
 \setCJKfamilyfont{fang}{FangSong}
 % 字体定义
 \newcommand{\songti}{\CJKfamily{song}}
@@ -130,7 +130,7 @@
 \newcommand{\textsubsectionfont}{\heiti\xiaosihao}     % 正文上X.Y.Z小节的字体 font for the third level title 
 \newcommand{\textsubsubsectionfont}{\heiti\xiaosihao}     % 正文上X.Y.Z.K小节的字体 font for the fourth level title
 \newcommand{\footnotefont}{\songti\xiaowuhao\normalfont}     % 脚注字体 font for the footer
-\newcommand{\ftcaptionfont}{\songti\wuhao\normalfont}         % 图表标题的字体 font for the title of a graph/picture
+\newcommand{\ftcaptionfont}{\kaiti\wuhao\normalfont}         % 图表标题的字体 font for the title of a graph/picture
 \newcommand{\reftitlefont}{\heiti\sanhao}      % “参考文献”字样的字体 font for "参考文献/reference"
 \newcommand{\refbodyfont}{\songti\wuhao\normalfont}          % 参考文献字体 font for referneces
 \newcommand{\thanktitlefont}{\heiti\sanhao}    % “致谢”字样的字体 font for "acknowledge"
@@ -547,7 +547,7 @@
 %% 定理环境
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \RequirePackage{bm} % 数学符号粗体
-\RequirePackage{amsmath,amsthm,amsfonts} 
+\RequirePackage{amsmath,amsthm,mathrsfs} 
 %允许公式换页显示,否则大型推导公式都在一页内，
 %一页显示不下放到第二页，导致很大的空白空间，很不好看
 \allowdisplaybreaks[4]
