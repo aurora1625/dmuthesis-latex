@@ -93,20 +93,21 @@ FUNCTION {output.year}
   t
 }
 
-STRINGS {z}
-FUNCTION {remove.dots}
-{ 'z :=
-  ""
-  { z empty$ not}
-  { z #1 #1 substring$
-    z #2 global.max$ substring$ 'z :=
-    duplicate$ "." = 'pop$
-      { * }
-    if$
-  }
-  while$
+%STRINGS {z}
+%FUNCTION {remove.dots}
+%{ 'z :=
+ % ""
+  %{ z empty$ not}
+  %{ z #1 #1 substring$
+   % z #2 global.max$ substring$ 'z :=
+    %duplicate$ "." = 'pop$
+     % { * }
+    %if$
+  %}
+  %while$
   %z
-}
+
+  %}
 
 FUNCTION {bibinfo.check}
 { swap$
@@ -171,22 +172,14 @@ FUNCTION {output.bibitem}
   before.all 'output.state :=
 }
 
-FUNCTION {fin.entry}
-{ duplicate$ empty$
-    'pop$
-    'write$
-  if$
-  newline$
-  "\thudot" write$
-  newline$
-}
 
-% FUNCTION {fin.entry}
-% { add.period$   
-%   write$
-%   %remove.dots
-%   newline$
-% }
+
+FUNCTION {fin.entry}
+{ add.period$   
+  write$
+   %remove.dots
+   newline$
+}
 
 % FUNCTION {fin.entry}
 % { duplicate$ empty$
