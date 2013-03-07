@@ -1,56 +1,53 @@
-% ----------------------------------------------------------------------
-%  大连海事大学博士/硕士论文 LaTeX模板
-%  作者 ： 肖智博、Vital Delmas Mabonzo
-%  版本 ： 0.61
-%  日期 ： 2012年10月29日
+%  ????????/???? LaTeX??
+%  ?? ? ????Vital Delmas Mabonzo
+%  ?? ? 0.61
+%  ?? ? 2012?10?29?
 %  Email : xiaozhibo@dlmu.edu.cn
-% ----------------------------------------------------------------------
 
-% ----------------------------------------------------------------------
-% Copyright (C)  2012  Zhibo Xiao(肖智博) and Vital Delmas Mabonzo
+% Copyright (C)  2012  Zhibo Xiao(???) and Vital Delmas Mabonzo
 % Permission is granted to copy, distribute and/or modify this document
 % under the terms of the GNU Free Documentation License, Version 1.3
 % or any later version published by the Free Software Foundation;
-% with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+% with no Invariant Sections, no FrontCover Texts, and no BackCover Texts.
 % A copy of the license is included in the section entitled "GNU
 % Free Documentation License".
-% ----------------------------------------------------------------------
 
-%  本文档采用 XeLaTeX 编译，请使用 CTex 2.7.0.38 之后的版本编译
+%  ????? XeLaTeX ?????? CTex 2.7.0.38 ???????
+
 \documentclass{dmuthesis}
-% 请修改自己的论文题目，使得页眉可以显示出论文题目
-\newcommand{\thesissubject}{不知道是谁的论文}
+% ????????????????????????
+\newcommand{\thesissubject}{????????}
 
 \renewcommand\theequation{\arabic{chapter}.\arabic{equation}}
 \renewcommand\thetable{\arabic{chapter}.\arabic{table}}
 \renewcommand\thefigure{\arabic{chapter}.\arabic{figure}}
 
 \begin{document}
-%----------------------------------------------------------------------
-% 论文封面，请从Word模板中打印出中文封面、英文封面、以及原创性声明。
-% 由于上述三页需要单面打印，所以请在每个页面之后手动插入一个空白页
-% 将上述 6 页打印成pdf放在下面  ↓目录中
-%----------------------------------------------------------------------
-\includepdf[pages=-]{cover/cover.pdf} 
-%----------------------------------------------------------------------
-%  前页部分，包括创新点摘要、中文摘要、英文摘要、目录
-%  请编辑body目录下的相应文件
-%----------------------------------------------------------------------
-%  创新点摘要，硕士同学请用 % 注释下面两行代码
+
+% ???????Word????????????????????????
+% ????????????????????????????????
+% ??? 6 ????pdf????  ????
+
+\includepdf[pages=]{cover/cover.pdf} 
+
+%  ?????????????????????????
+%  ???body????????
+
+%  ???????????? % ????????
 %\originalabstract 
 %\include{front/original_abstract}
-%  中文摘要
+%  ????
 \cnabstract
 \include{front/cn_abstract}
-%  英文摘要
+%  ????
 \enabstract
 \include{front/en_abstract}
-%  目录
+%  ??
 \tableofcontentmatter
 \tableofcontents{}
-%----------------------------------------------------------------------
-% 正文部分
-%----------------------------------------------------------------------
+
+% ????
+
 \mainmatter
 \include{body/chapter01}
 \include{body/chapter02}
@@ -59,19 +56,20 @@
 \include{body/chapter05}
 \include{body/chapter06}
 %\include{body/conclusion}
-%----------------------------------------------------------------------
-%  篇后部份
-%----------------------------------------------------------------------
+%
+%  ????
+%
 \backmatter
-%  参考文献
+%  ????
 \bibliographystyle{dmubib}
-% 请将.bib文件放在refenence目录下，如果有多个目录，请按注释方法引用
+% ??.bib????refenence????????????????????
 \bibliography{reference/thesisbib1}
-%\bibliography{reference/bib,reference/bib1,reference/chapter3bib} % 多个参考文献引用 
-% 附录文件，如果没有，请注释下面一行代码
+%\bibliography{reference/bib,reference/bib1,reference/chapter3bib} % 
+%%???????? 
+% ???????????????????
 %\include{back/appendix}
-% 发表文章列表
+% ??????
 %\include{back/pub}
-% 致谢
+% ??
 \include{back/ack}
 \end{document}
