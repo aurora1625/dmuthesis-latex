@@ -18,20 +18,29 @@
 完整安装TeXLive最新版即可。
 
 \subsection{有关字体的说明}
-{\heiti 由于此模板的目的是尽量与研究生院发布的Word}模板接近\cite{Donoho2004}，所以请MAC和Linux系统用户安装Windows系统下的宋体，黑体，楷体和仿宋。
+Windows用户请略过这小节的内容。
 
-除此之外，也可以自行安装Adobe系列字体\cite{Li2010,Lin2007}，或者其他和Windows下宋体、黑体等类似的字体，然后在\texttt{dmuthesis.cls}中 \texttt{setCJKmainfont} 等命令中替换成相应字体。
+ 由于此模板的目的是尽量与研究生院发布的Word模板接近，所以请MAC和Linux系统用户
+ 安装Windows系统下的宋体，黑体，楷体和仿宋。
+
+除此之外，也可以自行安装Adobe系列字体，或者其他和Windows下宋体、黑体等类似的
+字体，然后在\texttt{dmuthesis.cls}中 \texttt{setCJKmainfont} 
+等命令中替换成相应字体。
 
 
 \section{编译你的论文}\label{sect:compile}
 
-论文的中英文封面和原创性声明需要使用Word编辑，并\cite{Schneider2010}且在每页之后添加一个空白页(Ctrl+Enter)，然后将前六页保存成pdf文件——cover.pdf。
+论文的中英文封面和原创性声明需要使用Word编辑，并且在每页之后添加一个空白页(Ctrl+Enter)，然后将前六页保存成pdf文件——cover.pdf。
 
 之后在body文件夹用文本编辑器打开各个源文件进行编辑。
 
 \subsection{文本编辑器}
 
-在CTex套装中预制了WinEdt编辑器，由于WinEdt使用GBK编码，在其他文本编辑器和其他平台打开文件会出现乱码现象，而且，由于在使用参考文献时需要配合另外的软件使用，大多数软件默认的编码都是UTF8，所以不推荐WinEdt，我们推荐使用TexMaker、Vim+LaTexSuite等支持UTF8编码的专用LaTeX编辑器进行编辑。也可以使用Sublime Text 2、Notepad++等其他纯文本编辑器。
+不要使用CTex套装中预制了WinEdt编辑器，否则后果自负。
+由于WinEdt使用GBK编码。插入参考文献时需要配合另外的软件
+使用，大多数软件默认的编码都是UTF8，所以不推荐WinEdt，我们推荐使用
+TexStudio、Vim+LaTexSuite等支持UTF8编码的专用LaTeX编辑器进行编辑。
+也可以使用Sublime Text 2、Notepad++等其他纯文本编辑器。
 
 文本编辑器推荐列表(依照推荐顺序排序)：
 
@@ -49,17 +58,6 @@
 \end{enumerate}
 \end{itemize}
 
-\subsection{使用命令行编译}
-
-这种方式在所有系统下都可以进行。打开命令行工具，进入模板所在文件夹，按照下面顺序依次输入：
-\begin{verbatim}
-xelatex dmuthesis
-bibtex dmuthesis
-xelatex dmuthesis
-xelatex dmuthesis
-\end{verbatim}
-为了生成参考文献和书签以及交叉引用，所有的\LaTeX 文件都需要编译4次，\XeLaTeX 文件也不例外。
-
 
 \subsection{快捷编译}
 
@@ -72,5 +70,17 @@ xelatex dmuthesis
 
 在你最喜欢的bash下面运行\texttt{make} 编译。
 或者运行\texttt{sh run.sh}编译。
+
+\subsection{使用命令行编译}
+
+这种方式在所有系统下都可以进行。打开命令行工具，进入模板所在文件夹，按照下面顺序依次输入：
+\begin{verbatim}
+xelatex dmuthesis
+bibtex dmuthesis
+xelatex dmuthesis
+xelatex dmuthesis
+\end{verbatim}
+为了生成参考文献和书签以及交叉引用，所有的\LaTeX 文件都需要编译4次，\XeLaTeX 
+文件也不例外。
 
 
