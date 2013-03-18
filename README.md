@@ -6,22 +6,14 @@
 
 从无穷无尽的耗时费力的Word排版中解脱，写出排版优雅的论文
 
-## 适用平台
-
-* Windows7
-* CTeX 2.9 
 
 ## 如何使用
 
-参见 `dmuthesis.pdf` 文件
+参见 `dmuthesis.pdf` 文件。请务必查看文档，不把文档看完就不要问问题！
 
 ## 重要事项
 
-由于模板采用XeTeX 控制字体，所以在Windows XP下，请自行修改'dmuthesis.cls'文件中关于字体名称的地方。
-
-## 注意事项
-
-在参考文献 .bib 文件中中文文献要加上 lang = {zh} 字段，这样出现多于三个作者的时候，才会出现 “等”字样。
+Windows XP用户，请将模板中的 `dmuthesis.cls`文件删除，然后将 `xpdmuthesis.cls`更名为`dmuthesis.cls`。
 
 ## 特色之处
 
