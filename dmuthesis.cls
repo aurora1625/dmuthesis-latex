@@ -49,11 +49,15 @@
 \RequirePackage[top=2.5cm,bottom=2.5cm,left=2.8cm,right=2.8cm,headsep=1.2cm, includehead,includefoot]{geometry}
 
 % 中文段首缩进
-\newlength\CJK@twochars 
-\def\CJK@spaceChar{\Unicode{48}{7}}
-\def\CJKindent{%
-    \settowidth\CJK@twochars{\CJK@spaceChar\CJK@spaceChar}%
-    \parindent\CJK@twochars}
+\usepackage{zhspacing}
+\zhspacing
+
+
+%\newlength\CJK@twochars 
+%\def\CJK@spaceChar{\Unicode{48}{7}}
+%\def\CJKindent{%
+%    \settowidth\CJK@twochars{\CJK@spaceChar\CJK@spaceChar}%
+%    \parindent\CJK@twochars}
 
 %%%%%%%%%%%%%%%%%%%
 % 报警处理         %
