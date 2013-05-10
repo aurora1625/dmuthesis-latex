@@ -899,9 +899,7 @@
   year = {1800},
   volume = {224},
   pages = {260--266},
-  lang = {#zh#},
-  owner = {Sean},
-  timestamp = {2013.03.05}
+  lang = {zh}
 }
 
 @comment{jabref-meta: selector_publisher:}

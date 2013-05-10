@@ -15,6 +15,20 @@
 
 Windows XP用户，请将模板中的 `dmuthesis.cls`文件删除，然后将 `xpdmuthesis.cls`更名为`dmuthesis.cls`。
 
+对于中文参考文献，请在最后一行手工加入 `lang = {zh}`， 这样在多于三个作者显示在最后的参考文献列表中就不是 `et al`. 而是 `等` 了。
+
+比如：
+
+@ARTICLE{cnarticle,
+  author = {贾宝玉 and 林黛玉 and 薛宝钗 and 贾探春},
+  title = {论刘姥姥食量大如牛之现实意义},
+  journal = {红楼梦杂谈},
+  year = {1800},
+  volume = {224},
+  pages = {260--266},
+  lang = {zh}
+}
+
 ## 特色之处
 
 在文件中介绍了一些方法应对一些问题：
