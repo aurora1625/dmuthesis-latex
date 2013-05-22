@@ -48,16 +48,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \RequirePackage[top=2.5cm,bottom=2.5cm,left=2.8cm,right=2.8cm,headsep=1.2cm, includehead,includefoot]{geometry}
 
-% 中文段首缩进
-\usepackage{zhspacing}
-\zhspacing
 
-
-%\newlength\CJK@twochars 
-%\def\CJK@spaceChar{\Unicode{48}{7}}
-%\def\CJKindent{%
-%    \settowidth\CJK@twochars{\CJK@spaceChar\CJK@spaceChar}%
-%    \parindent\CJK@twochars}
 
 %%%%%%%%%%%%%%%%%%%
 % 报警处理         %
@@ -79,11 +70,14 @@
 \RequirePackage[BoldFont, SlantFont, CJKnumber]{xeCJK}
 \RequirePackage{fontspec,xunicode}
 \RequirePackage{xltxtra}
-\RequirePackage{zhspacing}
+% 中文段首缩进
+\RequirePackage{zhspacing} 
+
 \RequirePackage{zhmath}
 \zhspacing
 \setmainfont[Mapping=tex-text]{Times New Roman}
-\setCJKmainfont[BoldFont={Heiti}]{SimSun} 
+\setmonofont{Consolas}
+\setCJKmainfont[BoldFont={SimHei}]{SimSun} 
 \setCJKfamilyfont{song}{SimSun}
 \setCJKfamilyfont{hei}{SimHei}
 \setCJKfamilyfont{kai}{KaiTi}
