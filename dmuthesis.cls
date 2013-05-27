@@ -490,6 +490,8 @@
 
 \newenvironment{abstractCn}{
   \chapter*{摘\quad 要}
+  \vspace{1em}
+  \linespacing{1.682}
   %\addcontentsline{toc}{chapter}{摘要} % 
 }{
 }
@@ -504,6 +506,7 @@
 \newenvironment{abstractEn}
 {
   \chapter*{\textbf{ABSTRACT}}
+  \vspace{1em}
   %\addcontentsline{toc}{chapter}{Abstract} % 
 }{
 }
