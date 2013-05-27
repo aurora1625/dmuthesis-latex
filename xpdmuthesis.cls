@@ -48,12 +48,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \RequirePackage[top=2.5cm,bottom=2.5cm,left=2.8cm,right=2.8cm,headsep=1.2cm, includehead,includefoot]{geometry}
 
-% 中文段首缩进
-\newlength\CJK@twochars 
-\def\CJK@spaceChar{\Unicode{48}{7}}
-\def\CJKindent{%
-    \settowidth\CJK@twochars{\CJK@spaceChar\CJK@spaceChar}%
-    \parindent\CJK@twochars}
+
 
 %%%%%%%%%%%%%%%%%%%
 % 报警处理         %
@@ -75,8 +70,14 @@
 \RequirePackage[BoldFont, SlantFont, CJKnumber]{xeCJK}
 \RequirePackage{fontspec,xunicode}
 \RequirePackage{xltxtra}
+% 中文段首缩进
+\RequirePackage{zhspacing} 
+
+\RequirePackage{zhmath}
+\zhspacing
 \setmainfont[Mapping=tex-text]{Times New Roman}
-\setCJKmainfont{SimSun} 
+\setmonofont{Consolas}
+\setCJKmainfont[BoldFont={SimHei}]{SimSun} 
 \setCJKfamilyfont{song}{SimSun}
 \setCJKfamilyfont{hei}{SimHei}
 \setCJKfamilyfont{kai}{KaiTi_GB2312}
@@ -183,6 +184,7 @@
 \RequirePackage{booktabs} % 增加对三线表格的支持 % \toprule，\midrule，\bottomrule
 \usepackage{longtable} % 长表格支持，截断跨页
 \RequirePackage{ctable, threeparttable} % 支持表格注释,复杂表格，一般用不上
+\RequirePackage{tabu}
 %\RequirePackage{slashbox} % 表格中的反斜线
 \captionsetup[table]{position=top}
 %%%%%%%%%%定义双标题命令
@@ -317,8 +319,8 @@
 
 %\sethead[ even-left ][ even-center ][ even-right ]    { odd-left }{ odd-center }{ odd-right }
 \newpagestyle{revtitlestyle}{
-  \sethead[][{\headfont{}\thesissubject}][] % 页眉偶数页，五号字体，居中
-  {}{{\headfont{}\chaptertitlename\quad \chaptertitle}}{} % 页眉奇数页，五号字体，居中
+  \sethead[][{\headfont{}\chaptertitlename\quad \chaptertitle}][] % 页眉偶数页，五号字体，居中
+  {}{{\headfont{}\thesissubject}}{} % 页眉奇数页，五号字体，居中
   \setfoot{}{\pagefont{}-~\thepage~-}{}%页码五号宋体居中
   \headrule%上横线
   \setheadrule{0.5pt}%设置横线粗细
@@ -354,16 +356,16 @@
 
 % page style for chapters without label number
 \newpagestyle{nolabelchapterstyle}{
-    \sethead[][{\headfont{}\thesissubject}][] % 页眉偶数页，五号字体，居中
-    {}{{\headfont\chaptertitle}}{} % 页眉奇数页，五号字体，居中, no label
+    \sethead[][{\headfont\chaptertitle}][] % 页眉偶数页，五号字体，居中
+    {}{{\headfont{}\thesissubject}}{} % 页眉奇数页，五号字体，居中, no label
     \setfoot{}{\pagefont{}-~\thepage~-}{}%页码五号宋体居中
     \headrule%上横线
     \setheadrule{0.5pt}%设置横线粗细
 } 
 
 \newpagestyle{frontmatterstyle}{
-  \sethead[][{\headfont{}\chaptertitle}][] % 页眉偶数页，五号字体，居中
-  {}{\headfont{}\chaptertitle}{} % 页眉奇数页，五号字体，居中
+  \sethead[][\headfont{}\chaptertitle][] % 页眉偶数页，五号字体，居中
+  {}{{\headfont{}\chaptertitle}}{} % 页眉奇数页，五号字体，居中
   \headrule%上横线
   \setheadrule{0.5pt}%设置横线粗细
 }

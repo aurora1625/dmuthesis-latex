@@ -319,8 +319,8 @@
 
 %\sethead[ even-left ][ even-center ][ even-right ]    { odd-left }{ odd-center }{ odd-right }
 \newpagestyle{revtitlestyle}{
-  \sethead[][{\headfont{}\thesissubject}][] % 页眉偶数页，五号字体，居中
-  {}{{\headfont{}\chaptertitlename\quad \chaptertitle}}{} % 页眉奇数页，五号字体，居中
+  \sethead[][{\headfont{}\chaptertitlename\quad \chaptertitle}][] % 页眉偶数页，五号字体，居中
+  {}{{\headfont{}\thesissubject}}{} % 页眉奇数页，五号字体，居中
   \setfoot{}{\pagefont{}-~\thepage~-}{}%页码五号宋体居中
   \headrule%上横线
   \setheadrule{0.5pt}%设置横线粗细
@@ -356,16 +356,16 @@
 
 % page style for chapters without label number
 \newpagestyle{nolabelchapterstyle}{
-    \sethead[][{\headfont{}\thesissubject}][] % 页眉偶数页，五号字体，居中
-    {}{{\headfont\chaptertitle}}{} % 页眉奇数页，五号字体，居中, no label
+    \sethead[][{\headfont\chaptertitle}][] % 页眉偶数页，五号字体，居中
+    {}{{\headfont{}\thesissubject}}{} % 页眉奇数页，五号字体，居中, no label
     \setfoot{}{\pagefont{}-~\thepage~-}{}%页码五号宋体居中
     \headrule%上横线
     \setheadrule{0.5pt}%设置横线粗细
 } 
 
 \newpagestyle{frontmatterstyle}{
-  \sethead[][{\headfont{}\chaptertitle}][] % 页眉偶数页，五号字体，居中
-  {}{\headfont{}\chaptertitle}{} % 页眉奇数页，五号字体，居中
+  \sethead[][\headfont{}\chaptertitle][] % 页眉偶数页，五号字体，居中
+  {}{{\headfont{}\chaptertitle}}{} % 页眉奇数页，五号字体，居中
   \headrule%上横线
   \setheadrule{0.5pt}%设置横线粗细
 }
